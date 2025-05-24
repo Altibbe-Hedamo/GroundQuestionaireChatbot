@@ -1,0 +1,124 @@
+Ground Report Format
+Basic Information
+•	Facility Name:
+•	Facility Address:
+•	Scope of Certification: (Crop Production / Livestock / Processing / Multiple)
+•	Products Applied for Certification:
+•	Any other details 
+
+1. Product Uniqueness & Health Benefits
+•	Brief Description of Product(s):
+(Highlight special features, indigenous practices, traditional processing, health/nutritional claims.)
+•	Observations on Uniqueness Claims:
+(Verify actual product uniqueness, traditional methods, ingredients.)
+•	Verification of Health/Nutritional Benefits:
+(Check against labels, promotional materials, formulation sheets.)
+•	Supporting Evidence/Records Reviewed:
+
+2. Raw Material Sourcing
+•	Key Raw Materials Used:
+(List primary ingredients/sources.)
+•	Source Verification:
+(Certified suppliers, contracts, invoices, certificates.)
+•	Traceability from Source to Facility:
+(Methods to trace raw materials, lot codes.)
+•	Observations on Sourcing Compliance:
+
+
+3. Farming & Cultivation Practices
+•	Farm Locations & Area Inspected:
+(Details if own farm or sourced from farmers.)
+•	Farming Methods Observed:
+(Organic practices, biodiversity, soil health.)
+•	Compliance with Organic Standards:
+(Input use, crop rotation, pest control.)
+•	Supporting Documents Verified:
+
+
+4. Ethical Livestock Practices (If applicable)
+•	Animal Types & Numbers:
+(If livestock farming involved.)
+•	Animal Welfare Observations:
+(Housing, grazing access, feed, health care.)
+•	Compliance with Ethical/Organic Standards:
+(Prohibited practices avoided.)
+•	Supporting Evidence/Records Reviewed:
+
+5. Manufacturing & Processing
+•	Facility Layout Observations:
+(Material flow, contamination prevention.)
+•	Manufacturing Process Overview:
+(Processing stages, equipment used.)
+•	Organic Integrity Maintenance:
+(Segregation, cleaning protocols.)
+•	Critical Control Points Observed:
+
+6. Chemical & Additive Compliance
+•	Additives or Processing Aids Used:
+(Full list, documentation of compliance.)
+•	Approval Documents/Non-GMO Declarations Verified:
+(Certificates, purchase invoices.)
+•	Risk of Contamination or Non-compliance:
+
+7. Harvesting & Post-Harvest Handling
+•	Harvesting Observations:
+(Tools, cleanliness, harvest timing.)
+•	Post-Harvest Handling Practices:
+(Sorting, drying, storage, packaging.)
+•	Contamination Prevention Measures:
+(Segregation, cleaning, pest control.)
+•	Supporting Records Verified:
+
+
+8. Packaging & Labeling
+•	Packaging Materials Used:
+(Eco-friendliness, certification if any.)
+•	Label Review Observations:
+(Ingredient declaration, claims, certification logo usage.)
+•	Packaging Process Verification:
+(Integrity maintenance, labeling controls.)
+•	Supporting Label Proofs/Files Reviewed:
+
+9. Environmental Impact & Sustainability
+•	Waste Management Practices:
+(Solid waste, water, emissions.)
+•	Sustainability Initiatives Observed:
+(Water conservation, renewable energy use.)
+•	Sustainable Packaging Observed:
+(If applicable.)
+•	Environmental Compliance Documents Verified:
+10. Worker Welfare & Ethical Practices
+•	Workforce Size & Type:
+(Permanent, seasonal, casual labor.)
+•	Working Conditions Observations:
+(Sanitation, safety gear, workplace safety.)
+•	Training and Awareness Programs:
+(Organic standards, worker welfare policies.)
+•	Evidence of Ethical Labor Practices:
+
+11. Certification Compliance & Documentation
+•	Documents Verified:
+(Certificates, internal audits, test reports.)
+•	Traceability Systems:
+(Lot tracking, batch records.)
+•	Internal Control Systems Observed:
+(Monitoring, SOPs, documentation practices.)
+•	Previous Non-compliances & Corrective Actions (If any):
+
+12. Future Goals & Continuous Improvement
+•	Stated Future Plans (As per management/staff):
+(Improvements in farming, processing, packaging, sustainability.)
+•	Innovation Initiatives:
+(New organic products, traditional methods revival.)
+•	Staff Training & Capacity Building Plans:
+(New modules, organic standards updates.)
+•	Inspector Recommendations for Improvement:
+
+Overall Compliance Rating:
+Fully Compliant
+Minor Non-Compliances (Requires Correction)
+Major Non-Compliances (Requires Corrective Action Plan)
+Non-Compliant
+
+Immediate Corrective Actions Suggested (if any):
+Overall Compliance Status:
