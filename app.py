@@ -34,12 +34,16 @@ API_URL = "https://api.ocr.space/parse/image"
 
 DB_URL=os.getenv("DB_URL")
 NEON_DB_URL=os.getenv("NEON_DB_URL")
+NEON_DB_URL_FOR_FINAL_REPORT=os.getenv("NEON_DB_URL_FOR_FINAL_REPORT")
 
 def get_db_connection():
     return psycopg2.connect(DB_URL)
 
 def get_db_connection1():
     return psycopg2.connect(NEON_DB_URL)
+
+def get_db_connection2():
+    return psycopg2.connect(NEON_DB_URL_FOR_FINAL_REPORT)
 
 def init_db():
     conn = get_db_connection()
@@ -123,6 +127,47 @@ def query_data(conn, table, subcategory):
          })
     finally:
         cursor.close()
+
+def insert_product(product_name, content):
+    conn = get_db_connection2()
+    if conn is None:
+        return "Database connection error."
+
+    try:
+        cursor = conn.cursor()
+        query = """
+        INSERT INTO product_info (product_name, content)
+        VALUES (%s, %s)
+        ON CONFLICT (product_name) DO UPDATE
+        SET content = product_info.content || '\n' || EXCLUDED.content
+        """
+        cursor.execute(query, (product_name, content))
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+        return "Product content updated successfully."
+    except Exception as e:
+        return f"Error: {e}"
+
+def get_product_content(product_name):
+    conn = get_db_connection2()
+    if conn is None:
+        return "Database connection error."
+
+    try:
+        cursor = conn.cursor()
+        query = "SELECT content FROM product_info WHERE product_name = %s"
+        cursor.execute(query, (product_name,))
+        result = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return result[0] if result else "Product not found."
+    except Exception as e:
+        return f"Error: {e}"
 
 def get_mime_type(file_path):
     mime_type, _ = mimetypes.guess_type(file_path)
@@ -228,6 +273,7 @@ def chat():
     report=""
     category=""
     sub_categories=[]
+    product_name=""
 
     aspects = [
         "Supplier and traceability documentation",
@@ -242,7 +288,7 @@ def chat():
         "Worker welfare review",
         "Environmental impact and sustainability assessment"
     ]
-
+    
     try:
         if request.content_type.startswith('multipart/form-data'):
             session_id = request.form.get("session_id")
@@ -322,7 +368,9 @@ def chat():
             report = data.get("report","")
             category = data.get("category","")
             sub_categories = data.get("sub_categories", [])
+            product_name= data.get("product_name","")
 
+        print("product_name::->",product_name)
         print("report:",report)
         print("category",category)
         print("sub_categories",sub_categories)
@@ -336,6 +384,9 @@ def chat():
         current_question_index = attempts.get("current_question_index", 0)
 
         if not history:
+            if product_name:
+                history.append(product_name)
+            
             if report:
                history.append(f"[Initial Report]\n{report}")
 
@@ -432,12 +483,24 @@ def chat():
             with open('prompt.txt', 'r', encoding='utf-8') as file:
                 content = file.read()
             report_prompt += content
-            for i, (q, a) in enumerate(zip(history, answers)):
-                report_prompt += f"Q{i+1}: {q}\nA: {a}\n"
+            
+            content_to_append_for_final_report=""
+            product_name=history[0]
+            
+            for i, a in enumerate(history): 
+                report_prompt += f"{i+1}:{a}\n"
+                content_to_append_for_final_report+= f"{i+1} : {a}"
 
+            insert_product(product_name, content_to_append_for_final_report)
+            
             contents.insert(0, {"text": report_prompt})
             response = model.generate_content(contents)
             report = response.text.strip()
+
+            insert_product(product_name,report)
+
+            content_from_db=get_product_content(product_name)
+            print("Content Saved to DB for final report::::->>>>",content_from_db)
 
             save_session(session_id, history, answers, completed, attempts)
             return jsonify({
@@ -458,12 +521,12 @@ def chat():
                     break
                  
         history_block = "\n\n".join(qa_pairs)
-        if len(history) > 0:
-           history_block += history[0]
         if len(history) > 1:
            history_block += history[1]
         if len(history) > 2:
            history_block += history[2]
+        if len(history) > 3:
+           history_block += history[3]
 
 
         prompt = (
